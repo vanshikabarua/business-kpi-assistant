@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analytics workspace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Primary navigation">
+      <div class="brand-mark" aria-label="Analytics workspace home"><span class="brand-dot"></span><span class="brand-bars"><i></i><i></i><i></i></span></div>
+      <nav class="side-nav">
+        <button class="nav-item active" data-view="overview"><span class="nav-icon">◈</span>Overview</button>
+        <button class="nav-item" data-view="trends"><span class="nav-icon">⌁</span>Trends</button>
+        <button class="nav-item" data-view="anomalies"><span class="nav-icon">△</span>Anomalies <b class="nav-count">4</b></button>
+        <button class="nav-item" data-view="data"><span class="nav-icon">▤</span>Data health</button>
+      </nav>
+      <div class="sidebar-foot"><div class="privacy-note"><span class="status-dot"></span><div><strong>Local workspace</strong><small>Data stays in your browser</small></div></div><button class="help-button" aria-label="Help">?</button></div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="breadcrumb"><span>Workspace</span><span>/</span><strong>Performance overview</strong></div>
+        <div class="top-actions"><span class="last-updated"><span class="status-dot"></span>Updated just now</span><button class="icon-button" aria-label="Notifications">♧<i></i></button><div class="avatar">MK</div></div>
+      </header>
+
+      <section class="page-heading">
+        <div><p class="eyebrow">Monday, 24 September 2026</p><h1>Good morning, let's find the signal.</h1><p class="heading-sub">A clear view of performance across your business, ready for a closer look.</p></div>
+        <label class="upload-button"><input id="file-input" type="file" accept=".csv,.xlsx,.xls"><span>↑</span> Import data</label>
+      </section>
+
+      <section class="filter-bar" aria-label="Dashboard filters">
+        <div class="filter-title"><span class="filter-icon">≡</span><span>Viewing</span></div>
+        <label>Period<select id="period-filter"><option value="quarter">This quarter</option><option value="month">This month</option><option value="year">This year</option></select></label>
+        <label>Region<select id="region-filter"><option>All regions</option><option>North</option><option>South</option><option>West</option><option>East</option></select></label>
+        <label>Category<select id="category-filter"><option>All categories</option><option>Technology</option><option>Office</option><option>Furniture</option></select></label>
+        <button class="reset-button" id="reset-filters">Reset filters</button><span class="record-count">Showing <strong id="record-count">820</strong> records</span>
+      </section>
+
+      <div id="upload-message" class="upload-message" hidden></div>
+
+      <section class="dashboard-view active-view" id="overview-view">
+        <div class="section-heading"><div><p class="eyebrow">Executive snapshot</p><h2>What is happening right now?</h2></div><button class="text-button" id="export-button">Export report <span>↗</span></button></div>
+        <div class="kpi-grid">
+          <article class="kpi-card accent"><div class="kpi-label">Total revenue <span class="kpi-menu">•••</span></div><div class="kpi-value" id="revenue-value">$1.28M</div><div class="kpi-meta positive"><span>↗ 12.8%</span> vs previous period</div><div class="sparkline revenue-spark"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+          <article class="kpi-card"><div class="kpi-label">Net profit <span class="kpi-menu">•••</span></div><div class="kpi-value">$342.6K</div><div class="kpi-meta positive"><span>↗ 8.4%</span> vs previous period</div><div class="sparkline profit-spark"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+          <article class="kpi-card"><div class="kpi-label">Profit margin <span class="kpi-menu">•••</span></div><div class="kpi-value">26.8%</div><div class="kpi-meta warning"><span>↘ 1.2%</span> vs previous period</div><div class="margin-meter"><span></span></div><small>Target margin <b>28%</b></small></article>
+          <article class="kpi-card"><div class="kpi-label">Units sold <span class="kpi-menu">•••</span></div><div class="kpi-value">18,492</div><div class="kpi-meta positive"><span>↗ 16.2%</span> vs previous period</div><div class="unit-badge"><span>↑</span><b>Demand is rising</b></div></article>
+        </div>
+
+        <div class="main-grid">
+          <article class="panel trend-panel"><div class="panel-heading"><div><p class="eyebrow">Performance over time</p><h3>Revenue & profit</h3></div><div class="legend"><span><i class="legend-revenue"></i>Revenue</span><span><i class="legend-profit"></i>Profit</span><button class="period-toggle active">Monthly⌄</button></div></div><div class="chart-wrap"><svg class="trend-chart" viewBox="0 0 760 270" role="img" aria-label="Revenue and profit trend chart"><defs><linearGradient id="areaFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#e05d3d" stop-opacity=".2"/><stop offset="1" stop-color="#e05d3d" stop-opacity="0"/></linearGradient></defs><g class="grid-lines"><line x1="45" y1="30" x2="740" y2="30"/><line x1="45" y1="78" x2="740" y2="78"/><line x1="45" y1="126" x2="740" y2="126"/><line x1="45" y1="174" x2="740" y2="174"/><line x1="45" y1="222" x2="740" y2="222"/></g><path class="area-path" d="M45 190 C75 175 95 181 120 160 S165 148 190 165 S230 142 260 125 S300 142 330 116 S375 104 400 112 S445 90 470 98 S515 70 540 80 S590 55 615 68 S665 48 690 55 S720 25 740 38 L740 222 L45 222Z"/><path class="revenue-path" d="M45 190 C75 175 95 181 120 160 S165 148 190 165 S230 142 260 125 S300 142 330 116 S375 104 400 112 S445 90 470 98 S515 70 540 80 S590 55 615 68 S665 48 690 55 S720 25 740 38"/><path class="profit-path" d="M45 211 C75 204 95 208 120 196 S165 187 190 201 S230 181 260 168 S300 182 330 161 S375 151 400 158 S445 143 470 150 S515 126 540 138 S590 116 615 127 S665 110 690 116 S720 92 740 102"/><g class="chart-labels"><text x="45" y="250">Apr</text><text x="160" y="250">May</text><text x="275" y="250">Jun</text><text x="390" y="250">Jul</text><text x="505" y="250">Aug</text><text x="620" y="250">Sep</text><text x="715" y="250">Oct</text></g></svg><div class="chart-callout"><span class="callout-dot"></span><b>September</b><strong>$238.4K</strong><small>+18.6% growth</small></div></div><div class="chart-footer"><span>Peak month: <b>September</b></span><span>Average monthly revenue: <b>$213.1K</b></span><span>Forecast next month: <b>$251.8K</b> <em>↗</em></span></div></article>
+          <article class="panel insight-panel"><div class="panel-heading"><div><p class="eyebrow">Decision support</p><h3>Worth knowing</h3></div><span class="spark-icon">✦</span></div><div class="insight-feature"><span class="insight-tag">Top performer</span><h4>Technology is carrying the quarter</h4><p>Revenue is up <strong>24.6%</strong> in Technology, led by enterprise orders in the North region.</p><button class="link-button">Explore category <span>→</span></button></div><div class="mini-insight"><span class="mini-icon coral">↘</span><div><b>Margin needs attention</b><small>Furniture margin fell 3.8% this period.</small></div><span>›</span></div><div class="mini-insight"><span class="mini-icon green">✦</span><div><b>Demand is accelerating</b><small>Units sold are 16.2% above last period.</small></div><span>›</span></div></article>
+        </div>
+
+        <div class="bottom-grid"><article class="panel region-panel"><div class="panel-heading"><div><p class="eyebrow">Where performance comes from</p><h3>Regional contribution</h3></div><button class="more-button">•••</button></div><div class="region-list"><div class="region-row"><div class="region-name"><span class="region-swatch north"></span>North <small>28% of revenue</small></div><strong>$359.8K</strong><div class="bar-track"><i style="width:88%"></i></div><em>+21%</em></div><div class="region-row"><div class="region-name"><span class="region-swatch west"></span>West <small>25% of revenue</small></div><strong>$321.4K</strong><div class="bar-track"><i style="width:77%"></i></div><em>+14%</em></div><div class="region-row"><div class="region-name"><span class="region-swatch east"></span>East <small>24% of revenue</small></div><strong>$308.2K</strong><div class="bar-track"><i style="width:72%"></i></div><em>+9%</em></div><div class="region-row"><div class="region-name"><span class="region-swatch south"></span>South <small>23% of revenue</small></div><strong>$290.6K</strong><div class="bar-track"><i style="width:67%"></i></div><em class="negative">−4%</em></div></div></article><article class="panel action-panel"><div class="panel-heading"><div><p class="eyebrow">Next best actions</p><h3>Move the needle</h3></div><span class="action-count">3 open</span></div><div class="action-item"><span class="priority high">High</span><div><b>Protect Technology inventory</b><small>Demand is trending 24.6% above baseline.</small></div><button aria-label="Open action">→</button></div><div class="action-item"><span class="priority medium">Med</span><div><b>Review Furniture discounting</b><small>Margin is below the 28% target.</small></div><button aria-label="Open action">→</button></div><div class="action-item"><span class="priority low">Low</span><div><b>Audit South territory</b><small>Revenue declined for two periods.</small></div><button aria-label="Open action">→</button></div></article></div>
+      </section>
+
+      <section class="dashboard-view" id="trends-view"><div class="section-heading"><div><p class="eyebrow">Explore performance</p><h2>Trends & forecasts</h2></div></div><div class="empty-view"><div class="empty-symbol">⌁</div><h3>Trend explorer is ready</h3><p>Use the period and region filters above to compare movement across the business.</p><button class="primary-button" data-view-jump="overview">Return to overview</button></div></section>
+      <section class="dashboard-view" id="anomalies-view"><div class="section-heading"><div><p class="eyebrow">Signals to investigate</p><h2>Anomalies</h2></div><span class="action-count alert">4 flagged</span></div><div class="anomaly-grid"><article class="anomaly-card"><span class="anomaly-icon spike">↑</span><div><span class="insight-tag">Demand spike</span><h3>Enterprise laptops</h3><p>Units sold are 2.4x the normal weekly range in North.</p><small>Detected 2 days ago · High confidence</small></div></article><article class="anomaly-card"><span class="anomaly-icon drop">↓</span><div><span class="insight-tag danger">Revenue drop</span><h3>Furniture / South</h3><p>Revenue is 18.2% below the expected period baseline.</p><small>Detected 4 days ago · Medium confidence</small></div></article></div></section>
+      <section class="dashboard-view" id="data-view"><div class="section-heading"><div><p class="eyebrow">Dataset diagnostics</p><h2>Data health</h2></div><button class="upload-button" id="data-upload-trigger">↑ Import new data</button></div><div class="health-grid"><article class="health-card"><span class="health-number">98.7%</span><b>Completeness</b><small>Across 820 records</small></article><article class="health-card"><span class="health-number">12</span><b>Columns detected</b><small>8 numeric · 3 categorical · 1 date</small></article><article class="health-card"><span class="health-number">0</span><b>Duplicate rows</b><small>Last checked just now</small></article></div><article class="panel schema-panel"><div class="panel-heading"><div><p class="eyebrow">Detected schema</p><h3>Ready for analysis</h3></div><span class="schema-status">All systems healthy</span></div><div class="schema-table"><div><b>Column</b><b>Type</b><b>Completeness</b><b>Use</b></div><div><span>Revenue</span><span class="type-pill numeric">Numeric</span><span><i class="health-bar"><i style="width:100%"></i></i>100%</span><span>Metric</span></div><div><span>Order date</span><span class="type-pill date">Date</span><span><i class="health-bar"><i style="width:99%"></i></i>99%</span><span>Time series</span></div><div><span>Region</span><span class="type-pill text">Category</span><span><i class="health-bar"><i style="width:100%"></i></i>100%</span><span>Dimension</span></div></div></article></section>
+
+      <section class="assistant-dock" aria-label="Ask about your data"><div class="assistant-prompt"><span class="assistant-spark">✦</span><div><b>Ask about your data</b><small>Try “Which region is growing fastest?”</small></div></div><div class="query-input"><input id="query-input" type="text" placeholder="Ask a question about your performance..."><button id="ask-button" aria-label="Ask question">↑</button></div><button class="mic-button" aria-label="Voice input">◉</button></section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
