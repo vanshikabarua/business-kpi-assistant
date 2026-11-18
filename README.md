@@ -93,3 +93,15 @@ data/
 ## Running the Application
 
 Double-click `index.html` or open via any local static server (e.g., VS Code Live Server). No build step, no npm install, and no backend dependencies required.
+
+## Frontend API Integration
+
+Configure the backend URLs in the `BUSINESS_KPI_CONFIG` script configuration in `index.html`.
+
+The frontend sends:
+
+- A `POST` multipart request to `uploadEndpoint` with a `file` field.
+- A `POST` JSON request to `queryEndpoint` with `question` and `filters`.
+- A `POST` JSON request to `analysisEndpoint` with `period`, `region`, and `category`.
+
+The frontend displays sample data when no backend is available and shows connection or processing errors without stopping navigation or export functions.
